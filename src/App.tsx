@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
 
-function App() {
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { Products } from './pages/Products';
+import { Promocoes } from './pages/Promocoes';
+import { Footer } from './components/Footer';
+import { Template } from './components/mainComponents/mainComponents';
+import { Contact } from './pages/Contact';
+import { AdPage } from './pages/AdPage';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    
+    <Template>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/produtos" element={<Products />} />
+        <Route path="/promocoes" element={<Promocoes />} />
+        <Route path="/contato" element={<Contact />} />
+        <Route path="/ad/:id" element={<AdPage/>} />
+      </Routes>
+    
+    <Footer />
+    </Template>
+
+    
+  )
 }
 
-export default App;
+export default App
